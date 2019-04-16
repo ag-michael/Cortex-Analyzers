@@ -1,0 +1,60 @@
+{
+    "name": "ActiveDirectory_Enrichment",
+    "version": "1.0",
+    "author": "Michael(github.com/ag-michael)",
+    "url": "https://github.com/TheHive-Project/Cortex-Analyzers",
+    "license": "MIT",
+    "description": "Look up ActiveDirectory for persons,computers and UPN's that are being tracked as observables.",
+    "dataTypeList": ["mail","user","hostname"],
+    "baseConfig": "ADEnrichment",
+    "config":{
+	},
+    "command": "ADEnrichment/adenrichment.py",
+    "configurationItems": [
+{
+          "name": "ldapsurl",
+          "description": "LDAPS URL",
+          "type": "string",
+          "multi": false,
+          "required": true,
+          "defaultValue": "ldaps://youradserver.corp.local"
+ },
+{
+          "name": "domain",
+          "description": "Domain",
+          "type": "string",
+          "multi": false,
+          "required": true,
+          "defaultValue": "MYCORP.LOCAL"
+ },
+{
+          "name": "computer_basedn",
+          "description": "This should be a semicolon separated list of base distinguished names such as ',OU=Mycompany,OU=Workstations,DC=corp,DC=local'",
+          "type": "string",
+          "multi": false,
+          "required": true,
+          "defaultValue": ",OU=Mycompany,OU=Workstations,DC=corp,DC=local"
+ },{
+          "name": "person_basedn",
+          "description": "This should be a semicolon separated list of base distinguished names such as ',OU=Branch,OU=UserAccounts,DC=corp,DC=local;,OU=HQ,OU=UserAccounts,DC=corp,DC=local'",
+          "type": "string",
+          "multi": false,
+          "required": true,
+          "defaultValue": ",OU=Branch,OU=UserAccounts,DC=corp,DC=local;,OU=HQ,OU=UserAccounts,DC=corp,DC=local"
+ },{
+          "name": "serviceaccount",
+          "description": "Service account name. used to bind to ldap",
+          "type": "string",
+          "multi": false,
+          "required": true,
+          "defaultValue": "MYCORP.LOCAL"
+ },{
+          "name": "serviceaccount_password",
+          "description": "Service account password",
+          "type": "string",
+          "multi": false,
+          "required": true,
+          "defaultValue": ""
+ }
+    ]
+}

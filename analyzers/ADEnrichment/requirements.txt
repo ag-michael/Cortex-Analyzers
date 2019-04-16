@@ -1,0 +1,4 @@
+cortexutils
+requests
+python-ldap
+unidecode
